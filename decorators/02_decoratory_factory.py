@@ -1,5 +1,6 @@
 # Define a decorator factory repeat(n) which takes int n and return decorator 
 # Decorator should allow that the function is called n times until n is exhausted
+# using enclosing principe
 
 def repeat(n):
     count = 0
