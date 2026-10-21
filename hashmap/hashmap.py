@@ -66,17 +66,37 @@ class HashMap:
             current_hash = (current_hash * 31) +ord(c)
         return current_hash % self.capacity
 
+
+
 if __name__ == "__main__":
+    import matplotlib
+    import matplotlib.pyplot as plt
+    import random
     z = HashMap(10)
 
     z.put('M', 10)
-    z.put('M', 20)  # ažuriranje
-    z.put('N', 30)  # novi ključ
+    z.put('M', 20)  # Update
+    z.put('N', 30)  # new key
 
-    print(z.get('M'))  # očekuješ 20
-    print(z.size)      # očekuješ 2
+    print(z.get('M'))  # 20
+    print(z.size)      #  2
 
     z.delete('M')
 
-    print(z.size)      # očekuješ 1
-    print('M' in z)    # očekuješ False
+    print(z.size)      #  1
+    print('M' in z)    #  False
+
+    x = []
+    y = []
+
+
+    for i, bucket in enumerate(z.buckets):
+        x.append(i)
+        y.append(len(bucket))
+
+    plt.bar(x=x, height=y)
+    plt.xlabel("Bucket Index")
+    plt.ylabel("Number of Items (Collision Count)")
+    plt.title("HashMap Bucket Distribution")
+    plt.xticks(range(10))
+    plt.show()
