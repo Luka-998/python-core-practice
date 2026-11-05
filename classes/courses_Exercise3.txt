@@ -1,0 +1,5 @@
+Python,Beginner,20
+Java,Advanced,60,Java
+SQL,Intermediate,35
+C++,Intermediate,45,C++
+Data Engineering,Advanced,80
